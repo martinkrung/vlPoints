@@ -328,10 +328,10 @@ def withdraw() -> Withdrawn:
 
     self._checkpoint(msg.sender, old_locked, zero_locked)
 
-    assert POINT.transfer(msg.sender, old_locked.amount - penalty)
+    assert POINTS.transfer(msg.sender, old_locked.amount - penalty)
     
     if penalty > 0:
-        assert POINT.approve(REWARD_POOL.address, penalty)
+        assert POINTS.approve(REWARD_POOL.address, penalty)
         assert REWARD_POOL.burn(penalty)
 
         log Penalty(msg.sender, penalty, block.timestamp)
@@ -529,7 +529,7 @@ def totalSupplyAt(height: uint256) -> uint256:
 @view
 @external
 def token() -> ERC20:
-    return POINT
+    return POINTS
 
 
 @view
