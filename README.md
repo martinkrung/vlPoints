@@ -25,6 +25,7 @@ So at most you are paying a 75% penalty that starts decreasing when your lock du
 * vote for the 15 candidates on the multisig
 * set the treasury address in the vlPOINTS contract where the penalty is collected
 * Quorum is 20%
+* Voting is on snapshot for now, but at some point should be fully on-chain
 
 ## members
 
