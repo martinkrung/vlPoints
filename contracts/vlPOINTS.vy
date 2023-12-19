@@ -1,6 +1,6 @@
 # @version 0.3.7
 """
-@title Voting POINTS
+@title Voting Locked POINTS
 @author Curve Finance, Yearn Finance
 @license MIT
 @notice
