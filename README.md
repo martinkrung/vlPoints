@@ -1,58 +1,53 @@
-## veYFI
+## vlPOINTS
 
-veYFI is locking similar to the ve-style program of Curve. 
+vlPOINTS is locking similar to the ve-style program of Curve. 
 
 ### Max lock
 
-YFI can be locked up to 4 years into veYFI, which is non-transferable. They are at least locked for a week.
+POINTS can be locked up to 1 years into vlPOINTS, which is non-transferable. They are at least locked for a week.
 
-### veYFI balance
+### vlPOINTS balance
 
-The duration of the lock gives the amount of veYFI relative to the amount locked, locking for four years gives you a veYFI balance equal to the amount of YFI locked. Locking for 2 years gives you a veYFI balance of 50% of the YFI locked.
+The duration of the lock gives the amount of vlPOINTS relative to the amount locked, locking for one year gives you a vlPOINTS balance equal to the amount of POINTS locked. Locking for 6 months gives you a vlPOINTS balance of 50% of the POINTS locked.
+
 The balance decay overtime and can be pushed back to max value by increasing the lock back to the max lock duration.
 
 
-### veYFI early exit
-It’s possible to exit the lock early, in exchange for paying a penalty that gets distributed to the account that have veYFI locked. The penalty for exiting early is the following: 
+### vlPOINTS early exit
+It’s possible to exit the lock early, in exchange for paying a penalty that gets distributed to the account that have vlPOINTS locked. The penalty for exiting early is the following: 
 ```
-    min(75%, lock_duration_left / 4 years * 100%)
+    min(75%, lock_duration_left / 1 year * 100%)
 ```
-So at most you are paying a 75% penalty that starts decreasing when your lock duration goes beyond 3 years.
+So at most you are paying a 75% penalty that starts decreasing when your lock duration goes beyond 3 months.
 
-## Gauges
+## vlPOINTS governance rights
 
-Gauges allow vault depositors to stake their vault tokens and earn dYFI rewards according to the amount of dYFI to be distributed and their veYFI weight.
+* vote for the 15 candidates on the multisig
+* set the treasury address in the vlPOINTS contract where the penalty is collected
+* Quorum is 20%
 
-### Gauges boosting
+## members
 
-Gauge rewards are boosted with a max boost of 10x. The max boost is a variable that can be adjusted by the team.
-
-The boost mechanism will calculate your earning weight by taking the smaller amount of two values:
-- The first value is the amount of liquidity you are providing. This amount is your maximum earning weight.
-- The second value is 10% of first value + 90% the amount deposited in gauge multiplied by the ratio of your `veYFI Balance/veYFI Total Supply`.
-```
-min(AmountDeposited, (AmountDeposited /10) + (TotalDepositedInTheGauge * VeYFIBalance / VeYFITotalSupply * 0.9))
-```
-When a user interacts with the gauge, the boosted amount is snapshotted until the next interaction.
-The rewards that are not distributed because the balance isn't fully boosted are distributed back to veYFI holders.
-
-### Gauge YFI distribution
-
-Every two weeks veYFI holders can vote on dYFI distribution to gauges.
-
-## veYFIRewardPool
-
-Users who lock veYFI can claim YFI from the veYFI exited early and the non-distributed gauge rewards due to the lack of boost.
-You will be able to start claiming from the veFYI reward pool two or three weeks from the Thursday after which you lock before you can claim.
+* members need at least 1000 vlPOINTS to get access to the member area
 
 
-## dYFIRewardPool
+## Voting for the multisig
 
-Users who lock veYFI can claim dYFI from the dYFI that aren't distributed due to the lack of boost.
+* candidates have to be members
+* candidates for the multisig have to send 1000 POINTS to the treasury
+* The 15 candidates with the most votes are eligible
+* Out of the 15 candidates 5 are randomly drawn for the multisig
 
-## Redemption
+ ## Replacment on multisig
 
-Redemption is the contract used to redeem dYFI for YFI using ETH. YFI/ETH price is fetched from curve and chainlink oracles. YFI is sold at a discounted rate based on the ratio between the total YFI supply and the veYFI supply.
+ * If one member wants to leave the multisig a replacement vote is held
+ * 3 candidates with the most votes are eligible
+ * 1 candidate is randomly drawn
+
+
+## vlPOINTS Treasury
+
+Panalty from exit is collected in the treasury multisig. The 3/5 multisig is public voted at least yearly or if the majority of vlPOINTS holder ask for.
 
 ## Setup
 
